@@ -3,12 +3,10 @@
 void    swap(t_list **a, char c)
 {
 	t_list *temp;
-	t_list *temp2;
 
-	temp2 = *a;
-	temp = temp2->next;
-	temp2->next = temp->next;
-	temp->next = temp2;
+	temp = (*a)->next;
+	(*a)->next = temp->next;
+	temp->next = *a;
 	*a = temp;
 	ft_printf("s%c\n", c);
 }
@@ -16,17 +14,14 @@ void    swap(t_list **a, char c)
 void	double_swap(t_list **a, t_list **b)
 {
 	t_list *temp;
-	t_list *temp2;
 
-	temp2 = *a;
-	temp = temp2->next;
-	temp2->next = temp->next;
-	temp->next = temp2;
+	temp = (*a)->next;
+	(*a)->next = temp->next;
+	temp->next = *a;
 	*a = temp;
-	temp2 = *b;
-	temp = temp2->next;
-	temp2->next = temp->next;
-	temp->next = temp2;
+	temp = (*b)->next;
+	(*b)->next = temp->next;
+	temp->next = *b;
 	*b = temp;
 	ft_printf("ss\n");
 }

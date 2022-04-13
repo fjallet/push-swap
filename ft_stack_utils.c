@@ -51,19 +51,55 @@ t_list	*ft_lstlast(t_list *lst)
 	if (!lst)
 		return (lst);
 	while (lst->next != NULL)
+	{
 		lst = lst->next;
+	}
 	return (lst);
 }
 
-void	ft_lstprint(t_list *a)
+int	ft_lstcount(t_list *lst)
 {
-	if (!a)
-		return ;
-	while (a && a->next != NULL)
+	int	i;
+
+	i = 0;
+	if (!lst)
+		return (0);
+	while (lst->next != NULL)
 	{
-		ft_printf("%i\n", a->content);
-		a = a->next;
+		lst = lst->next;
+		i++;
 	}
-	ft_printf("%i\n", a->content);
-	return ;
+	i++;
+	return (i);
+}
+
+void	ft_lstcpy(t_list **lst, t_list **new)
+{
+	t_list	*temp;
+
+	*new = NULL;
+	if (!(*lst))
+		return ;
+	temp = *lst;
+	while (temp->next != NULL)
+	{
+		ft_lstadd_back(new, ft_lstnew(temp->content));
+		temp = temp->next;
+	}
+	ft_lstadd_back(new, ft_lstnew(temp->content));
+}
+
+void	print_stack(t_list *lst)
+{
+	t_list *temp;
+
+	if (!lst)
+		return ;
+	temp = lst;
+	while (temp->next != NULL)
+	{
+		ft_printf("%i\n", temp->content);
+		temp = temp->next;
+	}
+	ft_printf("%i\n", temp->content);
 }
