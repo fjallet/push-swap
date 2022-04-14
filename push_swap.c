@@ -10,15 +10,13 @@ void	stack_free(t_list **lst)
 	{
 		temp = *lst;
 		*lst = (*lst)->next;
-		//ft_printf("%i\n", temp->content);
 		free(temp);
 	}
-	//ft_printf("%i\n", (*lst)->content);
 	free(*lst);
 	*lst = NULL;
 }
 
-int main( int argv, char   **argc)
+int	main(int argv, char **argc)
 {
 	t_data	data;
 	t_list	*a;
@@ -32,12 +30,15 @@ int main( int argv, char   **argc)
 	ft_printf("parsing valide\n");
 	ft_initdata(a, &data);
 	ft_lis(a, &data);
+	ft_swaplis(&a, &b, data);
 	ft_printf("---stack A---\n");
+	print_stack(a);
 	stack_free(&a);
 	ft_printf("--- LIS ---\n");
 	print_stack(data.bestlis);
-	stack_free((&data.lis));
+	stack_free((&data.bestlis));
 	ft_printf("---stack B---\n");
+	print_stack(b);
 	stack_free(&b);
 	(void)argv;
 	(void)argc;

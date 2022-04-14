@@ -11,7 +11,7 @@ t_list	*ft_parsing(char **arg, t_list	**a)
 	{
 		if (ft_isint(arg[i]))
 		{
-			ft_printf("Error integer limits");
+			ft_printf("Error integer limits\n");
 			return (0);
 		}
 		ft_lstadd_back(a, ft_lstnew(ft_atoi(arg[i])));
@@ -34,9 +34,9 @@ int	ft_isstandard(char **arg)
 		j = 0;
 		while(arg[i][j])
 		{
-			if (!(arg[i][j] >= '0' && '9' >= arg[i][j]))
+			if (!(arg[i][j] >= '0' && '9' >= arg[i][j]) && arg[i][j] != '-')
 			{
-				ft_printf("%cError character [%i][%i]", arg[i][j], i, j);
+				ft_printf("%c Error character [%i][%i]\n", arg[i][j], i, j);
 				return (1);
 			}
 			j++;
@@ -113,14 +113,14 @@ int	ft_checksame(t_list *a)
 		{
 			if (i->content == j->content)
 			{
-				ft_printf("Error same number");
+				ft_printf("Error same number\n");
 				return (1);
 			}
 			j = j->next;
 		}
 		if (i->content == j->content)
 		{
-			ft_printf("Error same number");
+			ft_printf("Error same number\n");
 			return (1);
 		}
 		i = i->next;

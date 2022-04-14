@@ -50,5 +50,8 @@ void	double_reverse_rotate(t_list **a, t_list **b);
 //ft_lis.c
 t_data	*ft_initdata(t_list *lst, t_data *data);
 t_data	*ft_lis(t_list *lst, t_data *data);
+t_data	*ft_inclis(t_list *lst, t_data *data);
+int		ft_isnotlis(int a, t_data data);
+void	ft_swaplis(t_list **a, t_list **b, t_data data);
 
 #endif
