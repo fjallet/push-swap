@@ -2,7 +2,7 @@ NAME = push_swap
 
 HEADERS = pushswap.h
 
-SRCS = ft_parsing.c ft_stack_utils.c operation.c push_swap.c ft_lis.c
+SRCS = ft_parsing.c ft_stack_utils.c operation.c push_swap.c ft_lis.c ft_checkbestmove.c
 
 OBJETS = ${SRCS:%.c=./.build/%.o}
 

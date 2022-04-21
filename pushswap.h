@@ -19,8 +19,21 @@ typedef struct s_data {
 	int		count;
 }				t_data;
 
+typedef struct s_move {
+	int	ra;
+	int	rb;
+	int	rr;
+	int	rra;
+	int	rrb;
+	int	rrr;
+	int	num;
+}				t_move;
+
 //push_swap.c
 void	stack_free(t_list **lst);
+void	ft_move(t_list **a, t_list **b, t_move bestmove);
+void	ft_printmove(t_move a);
+void	ft_pushswap(t_list **a, t_list **b);
 
 //ft_parsing.c
 t_list	*ft_parsing(char **arg, t_list	**a);
@@ -53,5 +66,13 @@ t_data	*ft_lis(t_list *lst, t_data *data);
 t_data	*ft_inclis(t_list *lst, t_data *data);
 int		ft_isnotlis(int a, t_data data);
 void	ft_swaplis(t_list **a, t_list **b, t_data data);
+
+//ft_checkbestmove.c
+t_move	checkbestmove(t_list *a, t_list *b);
+void	ft_rrp(t_move posia, t_move posib, t_move *tempmove);
+void	ft_rrrp(t_move posia, t_move posib, t_move *tempmove);
+void	ft_swaprrp(t_move posia, t_move posib, t_move *tempmove);
+t_move	ft_posi(int b, t_list *a);
+void	ft_initmove(t_move *a);
 
 #endif

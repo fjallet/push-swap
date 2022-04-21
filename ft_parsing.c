@@ -114,6 +114,7 @@ int	ft_checksame(t_list *a)
 			if (i->content == j->content)
 			{
 				ft_printf("Error same number\n");
+				stack_free(&a);
 				return (1);
 			}
 			j = j->next;
@@ -121,6 +122,7 @@ int	ft_checksame(t_list *a)
 		if (i->content == j->content)
 		{
 			ft_printf("Error same number\n");
+			stack_free(&a);
 			return (1);
 		}
 		i = i->next;

@@ -78,10 +78,10 @@ void	ft_swaplis(t_list **a, t_list **b, t_data data)
 	range = ft_lstcount(*a);
 	while (range > 0)
 	{
-		ft_printf("%i ", (*a)->content);
 		if (ft_isnotlis((*a)->content, data))
 			push(a, b, 'b');
-		rotate(a, 'a');
+		else
+			rotate(a, 'a');
 		range--;
 	}
 }
